@@ -13,7 +13,7 @@ require_relative 'reportcard'
 
 # Create test students with grades in various subjects
 def generate_student
-  s = Student.new(Faker::Name.name, rand(0..21))
+  s = Student.new(Faker::Name.name, rand(0..100))
   s.report_card.add_grade("math", rand(0..100))
   s.report_card.add_grade("history", rand(0..100))
   s.report_card.add_grade("english", rand(0..100))
@@ -22,36 +22,24 @@ def generate_student
 end
 
 # Generate our students
-1..21.times do |i|
+21.times do |i|
   @A.add_student(generate_student)
-end
-1..21.times do |i|
   @B.add_student(generate_student)
-end
-1..21.times do |i|
   @C.add_student(generate_student)
-end
-1..21.times do |i|
   @D.add_student(generate_student)
 end
 
 # Check the rosters
-1..21.times do |i|
+
   @A.roster
-  puts ""
-end
-1..21.times do |i|
+  puts "\n"
   @B.roster
-  puts ""
-end
-1..21.times do |i|
+  puts "\n"
   @C.roster
-  puts ""
-end
-1..21.times do |i|
+  puts "\n"
   @D.roster
-  puts ""
-end
+
+
 
 
 ############################################################
